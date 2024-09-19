@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: devops-tools
+  labels:
+    app: awebsite 
+  name: awebsite 
+spec:
+  selector:
+    matchLabels:
+      app: awebsite 
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: awebsite 
+    spec:
+      containers:
+      - name: awebsite
+        image: bakeryhead/my_public_repo:awebsite01
+        ports:
+        - name: httpport
+          containerPort: 9000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: awebsite-service
+  namespace: devops-tools
+spec:
+  selector:
+    app: awebsite
+  type: NodePort
+  ports:
+    - port: 9000
+      targetPort: 9000
+      nodePort: 31000
