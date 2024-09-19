@@ -36,7 +36,9 @@ review pod deployments
 once pods are deployed, check the service info
 - kubectl get services -o wide -n devops-tools
 
-use the port listed in the service for your deployment, to create a local forward
+if you have a system on the same vpc you should be able to hit the website on the nodeport (any node address) of the cluster, with te port identified above.
+
+you can also use kubectl to forward the service to your localhost 
 - ex.  kubectl port-forward deployment/awebsite01 31002:31003 -n devops-tools
 
 http://127.0.0.1:31003 should display intended result
