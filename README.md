@@ -1,5 +1,11 @@
 # deploy awebsite
 
+## info
+project submission request for client. container contents are included for visibility
+
+- build a gke cluster using terraform
+- deploy a service to the cluster using kubectl
+
 ## pre-reqs 
 
 you must have a gcp personal project pre-configured, it is helpful to have gcloud deployed as you will use that to assist in deploying to the cluster with kubectl
