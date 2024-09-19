@@ -1,0 +1,16 @@
+import os
+import uvicorn 
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+
+def central_function():
+  return {"this website": "isCool"}
+
+if __name__ == "__main__":
+  my_port = int(os.getenv('MY_PORT', 9000))
+  uvicorn.run(app, host="0.0.0.0", port=my_port)
+
