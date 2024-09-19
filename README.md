@@ -13,9 +13,9 @@ modify the terraform/terraform.tfvars to reflect your gcp project id
 modify the terraform/gke.tf to include the cluster password of your choosing
 
 cd into ./terraform and perform 
-> terraform init
-> terraform plan
-> terraform apply
+- terraform init
+- terraform plan
+- terraform apply
 
 
 
