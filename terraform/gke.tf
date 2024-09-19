@@ -5,7 +5,7 @@ variable "gke_username" {
 
 variable "gke_password" {
   # need a password here
-  default     = ""
+  # default     = ""
   description = "gke password"
 }
 
