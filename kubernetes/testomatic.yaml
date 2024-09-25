@@ -3,21 +3,21 @@ kind: Deployment
 metadata:
   namespace: devops-tools
   labels:
-    app: awebsite 
-  name: awebsite 
+    app: testomatic 
+  name: testomatic 
 spec:
   selector:
     matchLabels:
-      app: awebsite 
-  replicas: 3
+      app: testomatic 
+  replicas: 1 
   template:
     metadata:
       labels:
-        app: awebsite 
+        app: testomatic 
     spec:
       containers:
-      - name: awebsite
-        image: bakeryhead/my_public_repo:awebsite-amd64
+      - name: testomatic
+        image: bakeryhead/my_public_repo:testomatic-amd64
         ports:
         - name: httpport
           containerPort: 9000
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: awebsite-service
+  name: testomatic-service
   namespace: devops-tools
 spec:
   selector:
-    app: awebsite
+    app: testomatic
   type: NodePort
   ports:
     - port: 9000
       targetPort: 9000
-      nodePort: 31000
+      nodePort: 32000
