@@ -45,7 +45,11 @@ once pods are deployed, check the service info
 if you have a system on the same vpc you should be able to hit the website on the nodeport (any node address) of the cluster, with the port identified above.
 
 you can also use kubectl to forward the service to your localhost 
-- ex.  kubectl port-forward deployment/awebsite01 31002:31003 -n devops-tools
+deprecated: - ex.  kubectl port-forward deployment/awebsite01 31002:31003 -n devops-tools
+ex. gcloud container clusters get-credentials YOURCLUSTER --region us-central1 --project YOURPROJECT \
+ && kubectl port-forward --namespace devops-tools $(kubectl get pod --namespace devops-tools --selector="app=awebsite" --output jsonpath='{.items[0].metadata.name}') 8080:9000
+
+
 
 http://127.0.0.1:31003 should display intended result
 - thiswebsite: is cool
